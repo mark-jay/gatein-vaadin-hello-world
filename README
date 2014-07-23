@@ -1,0 +1,13 @@
+# deploy:
+
+cd /home/fallen/projects/tmp/gatein/exo-examples/vaadin/
+mvn clean install
+mv /home/fallen/opt/gate-in-jboss/jboss-jpp-6.1/standalone/deployments/vaadin.war.{deployed,undeploy}
+sleep 10
+ls /home/fallen/opt/gate-in-jboss/jboss-jpp-6.1/standalone/deployments/ | grep deployed
+rm /home/fallen/opt/gate-in-jboss/jboss-jpp-6.1/standalone/deployments/vaadin.war
+
+cp /home/fallen/projects/tmp/gatein/exo-examples/vaadin/target/vaadin.war /home/fallen/opt/gate-in-jboss/jboss-jpp-6.1/standalone/deployments/
+sleep 10
+ls /home/fallen/opt/gate-in-jboss/jboss-jpp-6.1/standalone/deployments/ | grep deployed
+date
